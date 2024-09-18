@@ -6,13 +6,12 @@ import argparse
 # La siguiente lista de Browsers no incluyen browsers que requieren la instalacion de bibliotecas exteras como
 # es el caso de Opera
 browsers = ['chrome', 'firefox', 'safari']
-feature = ['SignUp', 'SignIn', 'All']
 parser = argparse.ArgumentParser()
 parser.add_argument('--browser', help='[chrome|firefox|safari]')
-parser.add_argument('--feature', help='[SignUp|SignIn|All]')
+parser.add_argument('--feature', help='[Login|RegistrarCandidato]')
 args = parser.parse_args()
 if args.browser in browsers:
-    if args.feature in ['Login', 'SignIn']:
+    if args.feature in ['Login','RegistrarCandidato']:
         behave_main(["--no-capture", "-D browser=" + args.browser, "features/choucair" + args.feature + "Feature.feature"])
         time.sleep(1)
     elif args.feature == 'All':
