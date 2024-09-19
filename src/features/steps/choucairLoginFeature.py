@@ -38,20 +38,20 @@ def step_impl(context):
     context.driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     # Se agrega una espera activa para dar oportunidad al browser de cargar la pagina completamente, incluyendo xpaths
     context.driver.implicitly_wait(30)
-    time.sleep(5)
+    time.sleep(1)
 
 @when('Ingresar "{user}" en el campo "Username" en Login')
 def step_impl(context, user):
     ((context.driver.find_element(By.NAME, "username"))
      .send_keys(user))
-    time.sleep(3)
+    time.sleep(1)
 
 
 @step('Ingresar "{user_password}" en el campo "Password"')
 def step_impl(context, user_password):
     ((context.driver.find_element(By.NAME, "password"))
      .send_keys(user_password))
-    time.sleep(2)
+    time.sleep(1)
 
 
 @then('Click en el boton "Login"')
@@ -59,12 +59,12 @@ def step_impl(context):
     (context.driver.find_element(
         By.XPATH, "/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
      .click())
-    time.sleep(4)
+    time.sleep(1)
 
 
 @then('Validar que ingrese a la pagina principal "OrangeHRM" en la url "{url_orange}"')
 def step_impl(context, url_orange):
-    time.sleep(2)
+    time.sleep(1)
     get_url = context.driver.current_url
     if get_url == url_orange:
         assert True
