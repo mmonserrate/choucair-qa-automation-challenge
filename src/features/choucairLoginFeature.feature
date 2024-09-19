@@ -1,4 +1,4 @@
-# Created by Maria Monserrate at 18/09/2024
+# Creado por Maria Monserrate. Fecha: 18/09/2024
 Feature: Inicio de sesión de usuario registrado previamente
   Este feature es parte del challenge tecnico como parte del proceso de seleccion de Choucair
   Background:

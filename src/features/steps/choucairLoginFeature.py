@@ -69,7 +69,7 @@ def step_impl(context, url_orange):
 
 @then('Validar mensaje mostrado al usuario: {error_login}')
 def step_impl(context, error_login):
-    error_generated = (context.driver.find_element(
+    error_generado = (context.driver.find_element(
         By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p").text)
-    assert error_generated == error_login
+    assert error_generado == error_login
     time.sleep(1)

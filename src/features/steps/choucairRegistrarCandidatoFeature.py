@@ -113,7 +113,7 @@ def step_impl(context):
     time.sleep(2)
 
 
-@then("Hacer clic en el boton guardar")
+@then("Hacer clic en el boton 'guardar'")
 def step_impl(context):
     (context.driver.find_element(
         By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[8]/button[2]')
@@ -137,7 +137,7 @@ def step_impl(context, comentario):
     time.sleep(1)
 
 
-@then("Hacer clic en el botón 'guardar'")
+@then("Hacer clic en el botón 'guardar' para continuar")
 def step_impl(context):
     (context.driver.find_element(
         By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]')
@@ -197,8 +197,80 @@ def step_impl(context, notas_entrevista):
     time.sleep(1)
 
 
-@then("Hacer click and el boton 'guardar'")
+@then("Hacer clic en el boton 'guardar' y continuar con el proceso")
 def step_impl(context):
     (context.driver.find_element(
-        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[5]/div/div[2]/textarea').click())
+        By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]').click())
     time.sleep(1)
+
+
+@then("Hacer clic en el botón: 'Marcar entrevista aprobada'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[3]').click())
+    time.sleep(1)
+
+
+@then("Agregar notas de la entrevista realizada: {nota_entrevista}")
+def step_impl(context, nota_entrevista):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/textarea')
+     .send_keys(nota_entrevista))
+    time.sleep(1)
+
+
+@step("Hacer clic en el boton 'guardar' y avanzar en el proceso")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]').click())
+    time.sleep(1)
+
+
+@then("Hacer clic en el botón 'oferta de trabajo'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[3]').click())
+    time.sleep(1)
+
+@then("Agregar notas acerca de la oferta de trabajo: {notas_oferta}")
+def step_impl(context, notas_oferta):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/textarea')
+     .send_keys(notas_oferta))
+    time.sleep(1)
+
+@then("Hacer clic en el boton 'guardar' para continuar con el proceso")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]').click())
+    time.sleep(1)
+
+
+@then("Hacer clic en el boton 'contratar'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[3]').click())
+    time.sleep(1)
+
+
+@then("Agregar notas finales del candidato a contratar: {notas_finales}")
+def step_impl(context, notas_finales):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/textarea')
+     .send_keys(notas_finales))
+    time.sleep(1)
+
+@step("Hacer clic en el boton 'guardar' para finalizar con el proceso")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]').click())
+    time.sleep(1)
+
+
+@then("Validar que el estado final del candidato sea: {estado}")
+def step_impl(context, estado):
+    estado_generado = (context.driver.find_element(
+        By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[1]/p").text)
+    assert estado_generado == estado
+    time.sleep(1)
+
