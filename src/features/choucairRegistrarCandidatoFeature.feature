@@ -14,7 +14,7 @@ Feature: Inicio de sesión de usuario registrado previamente
     Then Ingresar el primer nombre: Manuel
     And Ingresar el segundo nombre: Carlos
     And ingresar apellido: Lino
-    And Seleccionar una vacante: Senior QA Lead
+    And Seleccionar una vacante: Payroll Administrator
     And Ingresar correo electrónico: luis.lopez@example.com
     And Ingresar número de contacto: 3054789762
     And Adjuntar hoja de vida del candidato
@@ -22,3 +22,9 @@ Feature: Inicio de sesión de usuario registrado previamente
     And Agregar observación: Candidato con experiencia en pruebas manuales y automatizadas
     And Hacer clic en la casilla de verificación de consentimiento de data
     Then Hacer clic en el boton guardar
+    Then Hacer clic en el boton listacorta
+    And Agregar comentario acerca del candidato: Posee buen perfil
+    Then Hacer clic en el botón 'guardar'
+    Then Hacer clic en el boton 'programar entrevista'
+    Then Agregar un titulo para a entrevista: Entrevista a candidato 1 con el cliente
+    And Seleccionar el nombre del entrevistador: Amelia  Brown

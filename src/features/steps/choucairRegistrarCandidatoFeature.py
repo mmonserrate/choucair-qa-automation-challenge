@@ -125,4 +125,53 @@ def step_impl(context):
     (context.driver.find_element(
         By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[8]/button[2]')
      .click())
-    time.sleep(5)
+    time.sleep(1)
+
+
+@then("Hacer clic en el boton listacorta")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]')
+     .click())
+    time.sleep(4)
+
+
+@step("Agregar comentario acerca del candidato: {comentario}")
+def step_impl(context, comentario):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/textarea')
+     .send_keys(comentario))
+    time.sleep(1)
+
+
+@then("Hacer clic en el botón 'guardar'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]')
+     .click())
+    time.sleep(2)
+
+
+@then("Hacer clic en el boton 'programar entrevista'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/form/div[2]/div[2]/button[2]')
+     .click())
+    time.sleep(2)
+
+
+
+@then("Agregar un titulo para a entrevista: {tiulo_entrevita}")
+def step_impl(context, tiulo_entrevita):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input')
+     .send_keys(tiulo_entrevita))
+    time.sleep(1)
+
+
+@step("Seleccionar el nombre del entrevistador: {entrevistador}")
+def step_impl(context, entrevistador):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div/div[2]/div/div')
+     .send_keys(entrevistador))
+    time.sleep(1)
