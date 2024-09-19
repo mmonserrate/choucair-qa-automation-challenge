@@ -1,7 +1,7 @@
 
-# Inlaze QA Automation Engineer Challenge
+# Choucair: Prueba técnica para QA Automation Engineer
 
-Este Challenge es parte del proceso de selección para QA Automation Engineer en Inlaze
+Este Challenge es parte del proceso de selección para QA Automation Engineer en Choucair
 
 ## Tecnologías implementadas:
 * Python v3.9.6
@@ -30,35 +30,24 @@ https://pip.pypa.io/en/stable/installation/
 
 ## Corriendo las pruebas localmente
 
-Clonar el proyecto desde gitlab (Requiere tener git instalado - https://git-scm.com/downloads)
+Clonar el proyecto desde gitlab utilizando cualquier consola de comandos (Requiere tener git instalado - https://git-scm.com/downloads)
 
 ```bash
-  git clone https://github.com/mmonserrate/inlaze-qa-automation-challenge.git
+  git clone https://github.com/mmonserrate/choucair-qa-automation-challenge.git
 ```
 
 Ir al directorio de fuentes del proyecto 
 
 ```bash
-  cd inlaze-qa-automation-challenge/src
+  cd choucair-qa-automation-challenge/src
 ```
-Moverse al branch master
+Moverse al branch main
 
 ```bash
-  git checkout master
-```
-Instalar behave
-
-```bash
-pip install behave
+  git checkout main
 ```
 
-Instalar selenium
-
-```bash
-pip install selenium
-```
-
-Instalar las bibliotecas de Python requeridas por el proyecto
+Instalar las bibliotecas y dependencias de Python requeridas por el proyecto
 
 ```bash
 pip download -r requirements.txt
@@ -66,47 +55,66 @@ pip download -r requirements.txt
 
 Para correr las pruebas se debe ejecutar el siguiente comando:
 ```bash
-  $ python test_inlaze_challenge.py --browser [chrome|firefox|safari] --feature  [SignUp|SignIn|All]
+  $ python test_choucair_challenge.py --browser [chrome|firefox|safari] --feature  [Login|RegistrarCandidato|Todos]
 ```
-Donde browser es nombre del browser donde se desea correr la prueba y feature es el nombre del feature. Los valores posibles son:
+Donde browser es nombre del browser donde se desea correr la prueba y feature es el nombre del feature objeto de la prueba. Los valores posibles son:
 * browser
   - chrome
   - firefox
   - safari (Disponible sólo para MacOS)
 * feature
-  - SignUp -> Registro de Usuario
-  - SignIn -> Login de Usuario
-  - All -> Se ejecutan las pruebas de ambos features
+  - Login -> Ingreso de Usuario al sistema
+  - RegistrarCandidato -> Registrar candidato en la plataforma
+  - Todos -> Se ejecutan las pruebas de ambos features
 
-**Examples:**
+**Ejemplos:**
 
 ```bash
-  $ python test_inlaze_challenge.py --browser chrome --feature SignUp
+  $ python test_choucair_challenge.py --browser chrome --feature RegistrarCandidato
 ```
 ```bash
-  $ python test_inlaze_challenge.py --browser firefox --feature All
+  $ python test_choucair_challenge.py --browser firefox --feature Todos
 ```
 
 ## Features y casos considerados en estas pruebas 
-1. **Registro de Usuario:**
-    - El formulario debe permitir registrar un usuario con nombre, email y una contraseña.
-    - El campo de nombre debe contener mínimo 2 palabras (primer nombre y apellido).
-    - El email debe cumplir con el estándar de una dirección de correo electrónico y ser único en la base de datos.
-    - La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.
-    - El formulario no debe ser enviado hasta que todos los campos obligatorios estén completos.
-    - La contraseña debe ser ingresada dos veces y el sistema debe informar al usuario si ambas coinciden.
-2. **Login de Usuario:**
-    - El usuario debe poder loguearse con el email y la contraseña registrados.
-    - El formulario de login no debe ser enviado hasta que todos los campos estén diligenciados.
-    - Al ingresar a la plataforma, debe mostrarse el nombre del usuario.
-    - La plataforma debe permitir al usuario cerrar la sesión.
+1. **Login de Usuario:**
+    - El usuario debe poder loguearse con el nombre de usuario y la contraseña registrados
+    - El formulario no debe ser enviado hasta que todos los campos obligatorios estén correctos
+    - Al ingresar a la plataforma, debe mostrarse la pagina principal de OrangeHRM con las opciones del menú disponibles para el usuario
+2. **Registrar candidato:**
+    - El formulario debe permitir registrar un candidato con los sigueintes datos: 
+      - Primer Nombre, Segundo Nombre y Apellido 
+      - Vacante 
+      - Correo electrónico 
+      - Número de contacto 
+      - Currículum Vitae 
+      - Palabras clave 
+      - Fecha de la solicitud
+      - Comentarios
+      - Notas
+   - Luego de ingresar todos los datos se debe activar la casilla de verificacíon para el consentimiento y tratamiento de datos.
+   - Hacer clic en guardar para almacenar los datos del candidato.
+   - Actualizar estado "Shortlisted" haciendo click en el botón "Shortlist"
+   - En el siguiente formulario "Shortlist Candidate", agregar una nota.
+   - Click en guardar
+   - En la pantalla "Application Stage" hacer click en el botón "Schedule Interview"
+   - Registrar los datos requeridos en el formulario "Schedule Interview"
+   - Clic en guardar
+   - Nuevamente en la pantalla "Application Stage" hacer click en el botón "Mark Interview Passed"
+   - En el siguiente formulario "Mark Interview Passed", agregar una nota.
+   - Clic en guardar
+   - Una vez mas en la pantalla "Application Stage" hacer click en el botón "Offer Job"
+   - En el siguiente formulario "Offer Job", agregar una nota.
+   - Clic en guardar
+   - Por ultimo en la pantalla "Application Stage" hacer click en el botón "Hire"
+   - En el siguiente formulario "Hire Candidate", agregar una nota.
+   - Clic en guardar
+   - El status final de la aplicación debe ser "Status: Hired"
 
-## Casos de prueba y reporte de bugs
-Se incluyen los siguientes archivos como parte de la ejecución de las pruebas funcionales y automatizadas:
-* CP-LOGIN-USUARIO.xlsx
-* CP-REGISTRO-USUARIO.xlsx
-* REPORTE-BUGS.docx
-
+## Historias de Usuario
+Se incluye un archivo .pdf con las siguientes historias de usuarios asociadas a las pruebas automatizadas
+* Inicio de sesión
+* Contratación de nuevo empleado
 
 ## Autor
 
