@@ -9,6 +9,7 @@ from selenium.common import WebDriverException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+
 @given("Browser seleccionado")
 def test_define_browser_driver(context):
     if context.config.userdata.get('browser') == "chrome":
@@ -39,6 +40,7 @@ def step_impl(context):
     # Se agrega una espera activa para dar oportunidad al browser de cargar la pagina completamente, incluyendo xpaths
     context.driver.implicitly_wait(30)
     time.sleep(1)
+
 
 @when('Ingresar "{user}" en el campo "Username" en Login')
 def step_impl(context, user):
@@ -73,7 +75,7 @@ def step_impl(context, url_orange):
 
 
 @then('Validar mensaje mostrado al usuario "{error_login}"')
-def step_impl(context):
+def step_impl(context, error_login):
     (context.driver.find_element(
         By.CLASS_NAME, "oxd-alert-content oxd-alert-content--error")
      .click())

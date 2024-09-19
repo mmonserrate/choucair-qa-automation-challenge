@@ -17,7 +17,7 @@ Feature: Inicio de sesión de usuario registrado previamente
     And Seleccionar una vacante: Senior QA Lead
     And Ingresar correo electrónico: luis.lopez@example.com
     And Ingresar número de contacto: 3054789762
-#    And Adjuntar hoja de vida: 'https://drive.google.com/file/d/1pzopm-uJJrH-fOxys6w--CSz6R3IJWf8/view?usp=drive_link'
+    And Adjuntar hoja de vida del candidato
     And Agregar palabras claves: Lider, Calidad, OrangeHRM, Selenium
     And Agregar observación: Candidato con experiencia en pruebas manuales y automatizadas
     And Hacer clic en la casilla de verificación de consentimiento de data

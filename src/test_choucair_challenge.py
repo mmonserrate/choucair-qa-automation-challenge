@@ -12,7 +12,8 @@ parser.add_argument('--feature', help='[Login|RegistrarCandidato]')
 args = parser.parse_args()
 if args.browser in browsers:
     if args.feature in ['Login','RegistrarCandidato']:
-        behave_main(["--no-capture", "-D browser=" + args.browser, "features/choucair" + args.feature + "Feature.feature"])
+        behave_main(["--no-capture", "-D browser=" + args.browser, "features/choucair" + args.feature + "Feature"
+                                                                                                        ".feature"])
         time.sleep(1)
     elif args.feature == 'All':
         behave_main(["--no-capture", "-D browser=" + args.browser])
