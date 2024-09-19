@@ -1,115 +1,81 @@
+# choucair-qa-automation-challenge
 
-# Inlaze QA Automation Engineer Challenge
-
-Este Challenge es parte del proceso de selección para QA Automation Engineer en Inlaze
-
-## Tecnologías implementadas:
-* Python v3.9.6
-* pip v21.1.3
-* Behave v1.2.6
-* selenium v4.23.1
-
-
-
-## Instalacion
-
-Descargar e instalar el interprete de python desde el siguiente link:
-
-```bash
+Tecnologías implementadas:
+ ◦ Python v3.9.6
+ ◦ pip v21.1.3
+ ◦ Behave v1.2.6
+ ◦ selenium v4.23.1
+ 
+ Instalacion
+ Descargar e instalar el interprete de python desde el siguiente link:
   https://www.python.org/downloads/
   Seguir las instrucciones de intalación - version probada en desarrollo: 3.9.6
-```
 
 Instalar el manejador de paquetes PIP siguiendo el tutorial de instalación desde:
 
-```bash
 https://pip.pypa.io/en/stable/installation/
-```
 
-
-
-## Corriendo las pruebas localmente
-
+Corriendo las pruebas localmente
 Clonar el proyecto desde gitlab (Requiere tener git instalado - https://git-scm.com/downloads)
+  git clone https://github.com/mmonserrate/choucair-qa-automation-challenge.git
 
-```bash
-  git clone https://github.com/mmonserrate/inlaze-qa-automation-challenge.git
-```
+Ir al directorio de fuentes del proyecto
+  cd choucair-qa-automation-challenge/src
 
-Ir al directorio de fuentes del proyecto 
-
-```bash
-  cd inlaze-qa-automation-challenge/src
-```
 Moverse al branch master
-
-```bash
   git checkout master
-```
-Instalar behave
 
-```bash
+Instalar behave
 pip install behave
-```
 
 Instalar selenium
-
-```bash
 pip install selenium
-```
 
 Instalar las bibliotecas de Python requeridas por el proyecto
-
-```bash
 pip download -r requirements.txt
-```
 
 Para correr las pruebas se debe ejecutar el siguiente comando:
-```bash
-  $ python test_inlaze_challenge.py --browser [chrome|firefox|safari] --feature  [SignUp|SignIn|All]
-```
+  $ python test_choucair_challenge.py --browser [chrome|firefox|safari] --feature  [Login|RegistrarCandidato|Todos]
+
 Donde browser es nombre del browser donde se desea correr la prueba y feature es el nombre del feature. Los valores posibles son:
 * browser
-  - chrome
-  - firefox
-  - safari (Disponible sólo para MacOS)
+  ◦ chrome
+  ◦ firefox
+  ◦ safari (Disponible sólo para MacOS)
+
 * feature
-  - SignUp -> Registro de Usuario
-  - SignIn -> Login de Usuario
-  - All -> Se ejecutan las pruebas de ambos features
+  ◦ Login -> Login de Usuario
+  ◦ Registrar Candidato -> Registro  de nuevo candidato
+  ◦ All -> Se ejecutan las pruebas de ambos features
 
-**Examples:**
+* Examples:
+  $ python test_choucair_challenge.py --browser chrome --feature SignUp
+  $ python test_choucair_challenge.py --browser firefox --feature All
 
-```bash
-  $ python test_inlaze_challenge.py --browser chrome --feature SignUp
-```
-```bash
-  $ python test_inlaze_challenge.py --browser firefox --feature All
-```
+Features y casos considerados en estas pruebas
+1. Login de Usuario:
+◦ El usuario debe poder loguearse con el nombre de usuario y la contraseña registrados
+◦ El formulario no debe ser enviado hasta que todos los campos obligatorios estén correctos
+◦ Al ingresar a la plataforma, debe mostrarse la pagina principal de OrangeHRM con las opciones del menú disponibles para el usuario
 
-## Features y casos considerados en estas pruebas 
-1. **Registro de Usuario:**
-    - El formulario debe permitir registrar un usuario con nombre, email y una contraseña.
-    - El campo de nombre debe contener mínimo 2 palabras (primer nombre y apellido).
-    - El email debe cumplir con el estándar de una dirección de correo electrónico y ser único en la base de datos.
-    - La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.
-    - El formulario no debe ser enviado hasta que todos los campos obligatorios estén completos.
-    - La contraseña debe ser ingresada dos veces y el sistema debe informar al usuario si ambas coinciden.
-2. **Login de Usuario:**
-    - El usuario debe poder loguearse con el email y la contraseña registrados.
-    - El formulario de login no debe ser enviado hasta que todos los campos estén diligenciados.
-    - Al ingresar a la plataforma, debe mostrarse el nombre del usuario.
-    - La plataforma debe permitir al usuario cerrar la sesión.
+Registro de Usuario:
+◦ El formulario debe permitir registrar un candidato con los sigueintes datos: Primer Nombre, Segundo Nombre y Apellido, Vacante, Correo electrónico, Número de contacto, Currículum Vitae, Palabras clave, Fecha de la solicitud, Comentarios - Notas y clic en la casilla de verificación.
+◦ El formulario debe peprmitir hacer cambio de estado hasta completar a Hired
+◦ El formulario debe permitir actualizar el estado a: Application Initiated y seleccionar el candidato
+◦ El formulario debe permitir actualizar el estado a: Shortlisted y programar entrevista
+◦ El formulario debe permitir actualizar el estado a: Interview Scheduled
+◦ El formulario debe permitir actualizar el estado a: Interview Passed 
+◦ El formulario debe permitir actualizar el estado a: Job Offered
+◦ El formulario debe permitir actualizar el estado a: Status: Hired
+◦ El formulario no debe ser enviado hasta que todos los campos obligatorios estén completos
+◦ El formulario debe mostrar mensajes si alguno de los campos presenta error
+◦ El formulario debe mostrar menajes al completar una acción satisfactoria
 
-## Casos de prueba y reporte de bugs
+Historia de Uusairo:
+Se incluye archivo .pdf con dos historias de usuarios asociadas a las pruebas automatizadas
+
+Casos de prueba
 Se incluyen los siguientes archivos como parte de la ejecución de las pruebas funcionales y automatizadas:
-* CP-LOGIN-USUARIO.xlsx
-* CP-REGISTRO-USUARIO.xlsx
-* REPORTE-BUGS.docx
 
-
-## Authors
-
-- [@mmonserrate](https://www.github.com/mmonserrate)
-
-
+Autor:
+mmonserrate
