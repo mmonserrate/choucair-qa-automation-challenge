@@ -1,12 +1,7 @@
 # Creado por Maria Monserrate. Fecha: 18/09/2024
 import time
-
-import driver
-import self
 from behave import *
 from selenium import webdriver
-from selenium.common import WebDriverException
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 
@@ -68,15 +63,13 @@ def step_impl(context):
 def step_impl(context, url_orange):
     time.sleep(1)
     get_url = context.driver.current_url
-    if get_url == url_orange:
-        assert True
-    else:
-        assert False
+    assert get_url == url_orange
+    time.sleep(1)
 
 
-@then('Validar mensaje mostrado al usuario "{error_login}"')
+@then('Validar mensaje mostrado al usuario: {error_login}')
 def step_impl(context, error_login):
-    (context.driver.find_element(
-        By.CLASS_NAME, "oxd-alert-content oxd-alert-content--error")
-     .click())
-    time.sleep(10)
+    error_generated = (context.driver.find_element(
+        By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p").text)
+    assert error_generated == error_login
+    time.sleep(1)

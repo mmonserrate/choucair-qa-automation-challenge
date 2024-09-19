@@ -15,4 +15,4 @@ Feature: Inicio de sesión de usuario registrado previamente
     When Ingresar "Admins" en el campo "Username" en Login
     And Ingresar "Ladmin1234" en el campo "Password"
     Then Click en el boton "Login"
-    Then Validar mensaje mostrado al usuario "Credencialles no validas"
+    Then Validar mensaje mostrado al usuario: Invalid credentials

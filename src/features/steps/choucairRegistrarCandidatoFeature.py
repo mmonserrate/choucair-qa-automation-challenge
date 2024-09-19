@@ -1,13 +1,6 @@
 # Creado por Maria Monserrate. Fecha: 18/09/2024
-import os
 import time
-import driver
-import self
 from behave import *
-from selenium import webdriver
-from selenium.common import WebDriverException
-from selenium.webdriver import Keys, ActionChains
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -82,10 +75,10 @@ def step_impl(context, contacto):
 
 @step("Adjuntar hoja de vida del candidato")
 def step_impl(context):
-    WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH,'//*[@id="app"]/div[1]/div['
-                                                                                     '2]/div[2]/div/div/form/div['
-                                                                                     '4]/div/div/div/div/div['
-                                                                                     '2]/div/div[1]'))).click()
+    WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div[1]/div['
+                                                                                      '2]/div[2]/div/div/form/div['
+                                                                                      '4]/div/div/div/div/div['
+                                                                                      '2]/div/div[1]'))).click()
     time.sleep(1)
     current_working_directory = os.getcwd()
     keyboard = Controller()
@@ -160,7 +153,6 @@ def step_impl(context):
     time.sleep(2)
 
 
-
 @then("Agregar un titulo para a entrevista: {tiulo_entrevita}")
 def step_impl(context, tiulo_entrevita):
     (context.driver.find_element(
@@ -169,9 +161,44 @@ def step_impl(context, tiulo_entrevita):
     time.sleep(1)
 
 
-@step("Seleccionar el nombre del entrevistador: {entrevistador}")
+@step("Agregar el nombre del entrevistador: {entrevistador}")
 def step_impl(context, entrevistador):
     (context.driver.find_element(
-        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div/div[2]/div/div')
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div/div[2]/div/div/input')
      .send_keys(entrevistador))
+    time.sleep(1)
+    WebDriverWait(context.driver, 3).until(
+        EC.element_to_be_clickable((By.XPATH,
+                                    "//div[@role='listbox']//div[@role='option']//span[contains(text(),'" + entrevistador + "')]"))).click()
+    time.sleep(1)
+
+
+@step("Agregar fecha de la entrevista: {fecha_entrevista}")
+def step_impl(context, fecha_entrevista):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[3]/div/div[2]/div/div/input')
+     .send_keys(fecha_entrevista))
+    time.sleep(1)
+
+
+@step("Agregar hora de la entrevista: {hora_entrevista}")
+def step_impl(context, hora_entrevista):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div/input')
+     .send_keys(hora_entrevista))
+    time.sleep(1)
+
+
+@step("Agregar notas para la entrevista: {notas_entrevista}")
+def step_impl(context, notas_entrevista):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[5]/div/div[2]/textarea')
+     .send_keys(notas_entrevista))
+    time.sleep(1)
+
+
+@then("Hacer click and el boton 'guardar'")
+def step_impl(context):
+    (context.driver.find_element(
+        By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[5]/div/div[2]/textarea').click())
     time.sleep(1)

@@ -27,4 +27,8 @@ Feature: Inicio de sesión de usuario registrado previamente
     Then Hacer clic en el botón 'guardar'
     Then Hacer clic en el boton 'programar entrevista'
     Then Agregar un titulo para a entrevista: Entrevista a candidato 1 con el cliente
-    And Seleccionar el nombre del entrevistador: Amelia  Brown
+    And Agregar el nombre del entrevistador: Amelia  Brown
+    And Agregar fecha de la entrevista: 2024-09-24
+    And Agregar hora de la entrevista: 09:00 AM
+    And Agregar notas para la entrevista: Candidato con buen perfil
+    Then Hacer click and el boton 'guardar'
